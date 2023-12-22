@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Supermarket
 {
-	internal class Program
-	{
-		static void Main(string[] args)
-		{
-		}
-	}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("hello! ! ! ");
+            Console.ReadKey();
+        }
+    }
 }

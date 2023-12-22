@@ -8,5 +8,9 @@ namespace Supermarket
 {
 	internal class Services
 	{
+		// Memebervariables
+		private double price {  get; set; }
+		private int	amountOfPersonal {  get; set; }
+
 	}
 }
