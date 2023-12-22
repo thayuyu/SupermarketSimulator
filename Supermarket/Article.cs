@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Supermarket
 {
-	internal class Article
-	{
+    internal class Article
+    {
 
-		// Membervariables
-		private double price {  get; set; }
+        // Membervariables
+        private double price {  get; set; }
 
 
-	}
+    }
 }
