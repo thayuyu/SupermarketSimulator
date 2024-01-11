@@ -11,6 +11,8 @@ namespace Supermarket
         static void Main(string[] args)
         {
             Console.WriteLine("hello! ! ! ");
+            TechSupport tech = new TechSupport(25.50, 1);
+            tech.ITCheck("15.03");
 
             Console.ReadKey();
         }
