@@ -9,6 +9,7 @@ namespace Supermarket
     internal class TechSupport : Services
     {
 
+        // private List<Electronics> Items = new List<Electronics> ();
         // Constructor 
         public TechSupport(double Price, int Amount) : base(Price, Amount)
         {
@@ -23,7 +24,7 @@ namespace Supermarket
         }
         //public void Maintenance(Electronics Item, int hours)
         //{
-        //    Console.WriteLine("The Article {0} will undergo Maintenance for {1} hours and {2} will be needed for it.", Item.name, hours, GetAmountOfPersonal());
+        //    Console.WriteLine("The Article {0} will undergo Maintenance for {1} hours and {2} will be needed for it.\nPrice:{3}", Item.name, hours, GetAmountOfPersonal(), GetPrice());
         //}
     }
 }
