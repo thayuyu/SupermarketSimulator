@@ -8,10 +8,29 @@ namespace Supermarket
 {
     internal class Article
     {
+        private double price { get; set; }
+        private string name { get; set; }
 
-        // Membervariables
-        private double price {  get; set; }
-
-
+        public string GetName()
+        {
+            return name;
+        }
+        public void SetName(string valuename)
+        {
+            name = valuename;
+        }
+        public double GetPrice()
+        {
+            return price;
+        }
+        public void SetPrice(double valueprice)
+        {
+            price = valueprice;
+        }
+        public Article(string name, double price)
+        {
+            SetName(name);
+            SetPrice(price);
+        }
     }
 }
