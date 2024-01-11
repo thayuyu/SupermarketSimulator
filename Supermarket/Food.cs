@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Supermarket
 {
-    internal class Food : Article
+    internal class Food : Article, IArticle
     {
         private string expiryDate { get; set; }
         private string foodType { get; set; }

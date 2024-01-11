@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Supermarket
 {
-    internal class Electronics : Article
+    internal class Electronics : Article, IArticle
     {
         private string manufacturer { get; set; }
 

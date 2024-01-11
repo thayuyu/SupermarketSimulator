@@ -17,6 +17,17 @@ namespace Supermarket
             SetAmountPersonal(Amount);
         }
 
+        public List<IArticle> GetArticleList()
+        {
+            List <IArticle> mArticleList = new List<IArticle> ();
+            IArticle mySampleFood = new Food("Rindsfilet", 0, "01.01.2023", "Fleisch");
+            Electronics mySampleElectronic = new Electronics("PC", 0);
+            mArticleList.Add(mySampleFood);
+            mArticleList.Add(mySampleElectronic);
+
+            return mArticleList;
+        }
+
         // general It check
         public void ITCheck(string date)
         {
