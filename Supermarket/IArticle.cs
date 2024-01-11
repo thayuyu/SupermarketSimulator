@@ -7,9 +7,9 @@
 
             void SetName(string valuename);
 
-            double GetPrice();
+            double GetProductPrice();
 
-            void SetPrice(double valueprice);
+            void SetProductPrice(double valueprice);
 
         }
     }

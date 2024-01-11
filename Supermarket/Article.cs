@@ -8,7 +8,7 @@ namespace Supermarket
 {
     internal class Article : IArticle
     {
-        private double price { get; set; }
+        private double productPrice { get; set; }
         private string name { get; set; }
 
         public string GetName()
@@ -19,18 +19,18 @@ namespace Supermarket
         {
             name = valuename;
         }
-        public double GetPrice()
+        public double GetProductPrice()
         {
-            return price;
+            return productPrice;
         }
-        public void SetPrice(double valueprice)
+        public void SetProductPrice(double valueprice)
         {
-            price = valueprice;
+            productPrice = valueprice;
         }
         public Article(string name, double price)
         {
             SetName(name);
-            SetPrice(price);
+            SetProductPrice(price);
         }
     }
 }
