@@ -53,6 +53,8 @@ namespace Supermarket
             {
                 Food NewFood = new Food(name, price, expiryDate, foodType);
                 myArticleList.Add(NewFood);
+
+
             }
         }
     }
