@@ -17,7 +17,7 @@ namespace Supermarket
             int choiceAddProduct;
             Console.WriteLine("hello! ! ! ");
             TechSupport tech = new TechSupport(25.50, 1);
-            Article article = new Article();
+            Article article = new Article("Testarticle", 0.00);
             List<IArticle> myArticleArray = article.GetArticleList();
             tech.ITCheck("15.03");
 
@@ -81,7 +81,7 @@ namespace Supermarket
                     else if (choiceAddProduct == 1)
                     {
                         Console.WriteLine("What is the products name?");
-
+                        
                         Console.WriteLine("What is the products price?");
 
                         Console.WriteLine("Who is the manufacturer of the product?");
