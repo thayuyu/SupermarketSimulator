@@ -17,7 +17,8 @@ namespace Supermarket
             int choiceAddProduct;
             Console.WriteLine("hello! ! ! ");
             TechSupport tech = new TechSupport(25.50, 1);
-            List<IArticle> myArticleArray = tech.GetArticleList();
+            Article article = new Article();
+            List<IArticle> myArticleArray = article.GetArticleList();
             tech.ITCheck("15.03");
 
             do

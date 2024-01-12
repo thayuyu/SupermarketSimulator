@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Supermarket.Article" Collapsed="true">
-    <Position X="7.25" Y="4.25" Width="1.5" />
+    <Position X="13.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAAAABEAAAAAAAAAAEAAAAAAAAQAAABAA=</HashCode>
+      <HashCode>AIAAAAgAAAAAAACAAAAAAAAAAAAEAAAAAAAAQIAAhAA=</HashCode>
       <FileName>Article.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Supermarket.Electronics" Collapsed="true">
-    <Position X="8.25" Y="5.5" Width="1.5" />
+    <Position X="12" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAAAAA=</HashCode>
       <FileName>Electronics.cs</FileName>
@@ -17,7 +17,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Supermarket.Food" Collapsed="true">
-    <Position X="6" Y="5.5" Width="1.5" />
+    <Position X="14.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAQAAAAAAAAAAEAAAAAAAAQAAAAAQAAAAAQ=</HashCode>
       <FileName>Food.cs</FileName>
@@ -25,30 +25,44 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Supermarket.Housework" Collapsed="true">
-    <Position X="6" Y="2.5" Width="1.5" />
+    <Position X="12" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAIAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Housework.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Supermarket.TestMathHandler" Collapsed="true">
+    <Position X="18.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAACAAAAAAAAAAAAAAAQABAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>MyTestClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Supermarket.Program" Collapsed="true">
+    <Position X="16.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Supermarket.Services" Collapsed="true">
-    <Position X="7.25" Y="1.25" Width="1.5" />
+    <Position X="13.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAAAAAREAAAAAAAABAAAgAAgAAAAAAAAAA=</HashCode>
       <FileName>Services.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Supermarket.TechSupport" Collapsed="true">
-    <Position X="8.25" Y="2.5" Width="1.5" />
+    <Position X="14.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AQAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TechSupport.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Supermarket.IArticle" Collapsed="true">
-    <Position X="9.25" Y="4" Width="1.5" />
+    <Position X="16.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAQAAABAA=</HashCode>
+      <HashCode>AIAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAABAA=</HashCode>
       <FileName>IArticle.cs</FileName>
     </TypeIdentifier>
   </Interface>

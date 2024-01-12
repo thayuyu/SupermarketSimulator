@@ -8,6 +8,8 @@ namespace Supermarket
 {
     internal class TechSupport : Services
     {
+        List<IArticle> mArticleList = new List<IArticle>();
+
 
         // private List<Electronics> Items = new List<Electronics> ();
         // Constructor 
@@ -17,16 +19,24 @@ namespace Supermarket
             SetAmountPersonal(Amount);
         }
 
-        public List<IArticle> GetArticleList()
-        {
-            List <IArticle> mArticleList = new List<IArticle> ();
-            IArticle mySampleFood = new Food("Rindsfilet", 0, "01.01.2023", "Fleisch");
-            Electronics mySampleElectronic = new Electronics("PC", 0);
-            mArticleList.Add(mySampleFood);
-            mArticleList.Add(mySampleElectronic);
+        //public List<IArticle> GetArticleList()
+        //{
+        //    return mArticleList;
+        //}
 
-            return mArticleList;
-        }
+        //public void AddArticle(bool IsElectronic, string name, double price, string manufacturer, string expiryDate, string foodType)
+        //{
+        //    if(IsElectronic)
+        //    {
+        //        Electronics NewElectronic = new Electronics(name, price, manufacturer);
+        //        mArticleList.Add(NewElectronic);
+        //    }
+        //    else if (!IsElectronic)
+        //    {
+        //        Food NewFood = new Food(name, price, expiryDate, foodType);
+        //        mArticleList.Add(NewFood);
+        //    }
+        //}
 
         // general It check
         public void ITCheck(string date)

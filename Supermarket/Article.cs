@@ -11,6 +11,14 @@ namespace Supermarket
         private double productPrice { get; set; }
         private string name { get; set; }
 
+        List<IArticle> myArticleList = new List<IArticle>();
+
+        public Article(string name, double price)
+        {
+            SetName(name);
+            SetProductPrice(price);
+        }
+
         public string GetName()
         {
             return name;
@@ -27,10 +35,25 @@ namespace Supermarket
         {
             productPrice = valueprice;
         }
-        public Article(string name, double price)
+
+
+        public List<IArticle> GetArticleList()
         {
-            SetName(name);
-            SetProductPrice(price);
+            return myArticleList;
+        }
+
+        public void AddArticle(bool IsElectronic, string name, double price, string manufacturer, string expiryDate, string foodType)
+        {
+            if(IsElectronic)
+            {
+                Electronics NewElectronic = new Electronics(name, price, manufacturer);
+                myArticleList.Add(NewElectronic);
+            }
+            else if (!IsElectronic)
+            {
+                Food NewFood = new Food(name, price, expiryDate, foodType);
+                myArticleList.Add(NewFood);
+            }
         }
     }
 }
