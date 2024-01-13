@@ -49,7 +49,7 @@ namespace Supermarket
                 Electronics NewElectronic = new Electronics(name, price, manufacturer);
                 myArticleList.Add(NewElectronic);
             }
-            else if (!IsElectronic)
+            else
             {
                 Food NewFood = new Food(name, price, expiryDate, foodType);
                 myArticleList.Add(NewFood);
