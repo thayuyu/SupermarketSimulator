@@ -31,22 +31,19 @@
       <FileName>Housework.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Supermarket.TestMathHandler" Collapsed="true">
-    <Position X="18.5" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAIAAACAAAAAAAAAAAAAAAQABAAAAAAAAAAQAAAAAA=</HashCode>
-      <FileName>MyTestClass.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Supermarket.Program" Collapsed="true">
     <Position X="16.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAQAAAAAEAAAAAAAAABIAABAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Supermarket.Services">
     <Position X="13.25" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAAAAAREAAAAAAAABAAAgAAgAAAAAAAAAA=</HashCode>
       <FileName>Services.cs</FileName>

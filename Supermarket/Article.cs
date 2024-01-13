@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Supermarket
 {
-    internal class Article : IArticle
+    public class Article : IArticle
     {
         private double productPrice { get; set; }
         private string name { get; set; }
