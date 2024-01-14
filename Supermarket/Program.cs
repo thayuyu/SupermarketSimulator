@@ -73,6 +73,7 @@ namespace Supermarket
                                 else
                                 {
                                     Console.WriteLine("Your input was not a number!");
+                                    Console.ReadKey();
                                 }
                             }
 
@@ -93,6 +94,7 @@ namespace Supermarket
                                 else
                                 {
                                     Console.WriteLine("Your input was not a number!");
+                                    Console.ReadKey();
                                 }
                             }
 
@@ -122,23 +124,29 @@ namespace Supermarket
                                     {
                                         WriteAllArticleFieldsFromList(typeof(IArticle), myArticleArray, true, true, false, false, false);
                                     }
-
-
                                     else
                                     {
                                         Console.WriteLine("You have chosen a number that offers nothing.");
+                                        Console.ReadKey();
                                     }
                                 }
                                 else
                                 {
                                     Console.WriteLine("Your input was not a number!");
+                                    Console.ReadKey();
                                 }
                                 Console.Clear();
+                            }
+                            else
+                            {
+                                Console.WriteLine("You have not chosen a possible number!");
+                                Console.ReadKey();
                             }
                         }
                         else
                         {
                             Console.WriteLine("Your input was not a number!");
+                            Console.ReadKey();
                         }
 
                     }
@@ -155,35 +163,66 @@ namespace Supermarket
                         else
                         {
                             Console.WriteLine("Your input was not a number!");
+                            Console.ReadKey();
                         }
                     }
                     else if (choice == 3)
                     {
                         Console.WriteLine("How much does it cost?");
-                        double price = Convert.ToDouble(Console.ReadLine());
-                        Console.WriteLine("How many people are needed?");
-                        int amountOfPers = Convert.ToInt16(Console.ReadLine());
-                        Console.WriteLine("Where will it be done?");
-                        string address = Console.ReadLine();
-                        Console.WriteLine("When should the Housework be done?");
-                        string date = Console.ReadLine();
+                        if (int.TryParse(Console.ReadLine(), out int price))
+                        {
+                            Console.WriteLine("How many people are needed?");
+                            if (int.TryParse(Console.ReadLine(), out int amountOfPers))
+                            {
+                                Console.WriteLine("Where will it be done?");
+                                string address = Console.ReadLine();
+                                Console.WriteLine("When should the Housework be done?");
+                                string date = Console.ReadLine();
 
-                        service.AddService(true, price, amountOfPers, address, date, null);
+                                service.AddService(true, price, amountOfPers, address, date, null);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Your input was not a number!");
+                                Console.ReadKey();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Your input was not a number!");
+                            Console.ReadKey();
+                        }
                         Console.Clear();
                     }
                     else if (choice == 4)
                     {
                         Console.WriteLine("How much does it cost?");
-                        double price = Convert.ToDouble(Console.ReadLine());
-                        Console.WriteLine("How many people are needed?");
-                        int amountOfPers = Convert.ToInt16(Console.ReadLine());
-                        Console.WriteLine("When will the TechSupport be done?");
-                        string date = Console.ReadLine();
-                        Console.WriteLine("What's the name of the product you'd like to fix?");
-                        Electronics item = FindElectronic(Console.ReadLine(), myArticleArray);
+                        if (int.TryParse(Console.ReadLine(), out int price))
+                        {
+                            Console.WriteLine("How many people are needed?");
+                            if(int.TryParse(Console.ReadLine(), out int amountOfPers))
+                            {
+                                Console.WriteLine("When will the TechSupport be done?");
+                                string date = Console.ReadLine();
+                                Console.WriteLine("What's the name of the product you'd like to fix?");
+                                Electronics item = FindElectronic(Console.ReadLine(), myArticleArray);
 
 
-                        service.AddService(false, price, amountOfPers, null, date, item);
+                                service.AddService(false, price, amountOfPers, null, date, item);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Your input was not a number!");
+                                Console.ReadKey();
+                            }
+                        }
+                        else
+                        {
+                            {
+                                Console.WriteLine("Your input was not a number!");
+                                Console.ReadKey();
+                            }
+                        }
                         Console.Clear();
                     }
                     else if (choice == 5)
@@ -193,45 +232,56 @@ namespace Supermarket
                             "\nTechSupport [2]" +
                             "\nBoth [3]" +
                             "\n\nGo Back [0]");
-                        int choiceChooseServiceList = Convert.ToInt16(Console.ReadLine());
-                        Console.Clear();
-                        if (choiceChooseServiceList == 0)
+                        if (int.TryParse(Console.ReadLine(), out int choiceChooseServiceList))
                         {
-
-                        }
-                        else if (choiceChooseServiceList == 1)
-                        {
-                            Console.WriteLine("All Housework saved:\n");
-                            foreach (Housework s in myList)
+                            if (choiceChooseServiceList == 0)
                             {
-                                Console.WriteLine(s.Output());
-                                Console.Write("\n");
 
                             }
-                            Console.ReadKey();
-                            Console.Clear();
-                        }
-                        else if (choiceChooseServiceList == 2)
-                        {
-                            Console.WriteLine("All Tech Support saved:\n");
-                            foreach (TechSupport s in myList)
+                            else if (choiceChooseServiceList == 1)
                             {
-                                Console.WriteLine(s.Output());
-                                Console.Write("\n");
+                                Console.WriteLine("All Housework saved:\n");
+                                foreach (Housework s in myList)
+                                {
+                                    Console.WriteLine(s.Output());
+                                    Console.Write("\n");
+
+                                }
+                                Console.ReadKey();
+                                Console.Clear();
                             }
-                            Console.ReadKey();
-                            Console.Clear();
-                        }
-                        else if (choiceChooseServiceList == 3)
-                        {
-                            Console.WriteLine("All Services saved:\n");
-                            foreach (IService s in myList)
+                            else if (choiceChooseServiceList == 2)
                             {
-                                Console.WriteLine(s.Output());
-                                Console.Write("\n");
+                                Console.WriteLine("All Tech Support saved:\n");
+                                foreach (TechSupport s in myList)
+                                {
+                                    Console.WriteLine(s.Output());
+                                    Console.Write("\n");
+                                }
+                                Console.ReadKey();
+                                Console.Clear();
                             }
-                            Console.ReadKey();
-                            Console.Clear();
+                            else if (choiceChooseServiceList == 3)
+                            {
+                                Console.WriteLine("All Services saved:\n");
+                                foreach (IService s in myList)
+                                {
+                                    Console.WriteLine(s.Output());
+                                    Console.Write("\n");
+                                }
+                                Console.ReadKey();
+                                Console.Clear();
+                            }
+                            else
+                            {
+                                Console.WriteLine("You have chosen a number that is not available");
+                                Console.ReadKey();
+                                Console.Clear();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Your input was not a number!");
                         }
                     }
                     else if (choice == 6)
@@ -257,6 +307,11 @@ namespace Supermarket
                         Console.WriteLine($"\n\n\nTotal:\t\t\t{subTotalArti + subTotalServ}");
                         Console.ReadKey();
                         Console.Clear();
+                    }
+                    else
+                    {
+                        Console.WriteLine("You have not chosen one of the possible numbers!");
+                        Console.ReadKey();
                     }
                 }
                 else
@@ -338,6 +393,7 @@ namespace Supermarket
             else
             {
                 Console.WriteLine("Error, You have chosen a number that is not available.");
+                Console.ReadKey();
             }
             Console.Clear();
         }
@@ -371,6 +427,7 @@ namespace Supermarket
             else
             {
                 Console.WriteLine("Error, You have chosen a number that is not available.");
+                Console.ReadKey();
             }
             Console.Clear();
         }
@@ -388,6 +445,11 @@ namespace Supermarket
             else if (choiceAddProduct == 2)
             {
                 AddProduct(article, false);
+            }
+            else
+            {
+                Console.WriteLine("Error, you have chosen a number that is not available.");
+                Console.ReadKey();
             }
         }
         private static void AddProduct(Article article, bool IsElectronic)
@@ -419,6 +481,7 @@ namespace Supermarket
                 else
                 {
                     Console.WriteLine("Your input was not a number!");
+                    Console.ReadKey();
                 }
             }
             else
@@ -446,6 +509,7 @@ namespace Supermarket
                 else
                 {
                     Console.WriteLine("Your input was not a number!");
+                    Console.ReadKey();
                 }
 
             }

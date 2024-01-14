@@ -1,66 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Supermarket.Article" Collapsed="true">
-    <Position X="13.25" Y="6.25" Width="1.5" />
+  <Class Name="Supermarket.Article">
+    <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAgAAAAAAACAAAAAAAAAAAAEAAAAAAAAQIAAhAA=</HashCode>
       <FileName>Article.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Supermarket.Electronics" Collapsed="true">
-    <Position X="12" Y="7.5" Width="1.5" />
+  <Class Name="Supermarket.Electronics">
+    <Position X="5.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAAAAA=</HashCode>
       <FileName>Electronics.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Supermarket.Food" Collapsed="true">
-    <Position X="14.25" Y="7.5" Width="1.5" />
+  <Class Name="Supermarket.Food">
+    <Position X="8.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAQAAAAAAAAAAEAAAAAAAAQAAAAAQAAAAAQ=</HashCode>
       <FileName>Food.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Supermarket.Housework" Collapsed="true">
+  <Class Name="Supermarket.Housework">
     <Position X="12" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAIAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAIAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Housework.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Supermarket.Program" Collapsed="true">
-    <Position X="16.75" Y="3.25" Width="1.5" />
+  <Class Name="Supermarket.Program">
+    <Position X="16.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAAAAAQAAAAAEAAAAAAAAABIAABAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAQAACAAEAAAAAAAAABIAABAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Supermarket.Services">
-    <Position X="13.25" Y="3.25" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
+    <Position X="13.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAAAAREAAAAAAAABAAAgAAgAAAAAAAAAA=</HashCode>
+      <HashCode>AAABAAAAAAAAAAARECAIAAAAABAAAgAAgAAAACAAIAA=</HashCode>
       <FileName>Services.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Supermarket.TechSupport" Collapsed="true">
-    <Position X="14.25" Y="4.5" Width="1.5" />
+  <Class Name="Supermarket.TechSupport">
+    <Position X="14.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAQIAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>TechSupport.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="Supermarket.IArticle" Collapsed="true">
-    <Position X="16.75" Y="4.5" Width="1.5" />
+  <Interface Name="Supermarket.IArticle">
+    <Position X="16.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAABAA=</HashCode>
       <FileName>IArticle.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Supermarket.IService">
+    <Position X="18.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IService.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
