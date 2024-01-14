@@ -1,10 +1,12 @@
 ﻿using Supermarket;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
-namespace Supermarket
+namespace TestSupermarket
 {
     [TestFixture]
-    public class TestMathHandler
+    public class TestArticle
     {
         //Tests for Articles
         [Test]
@@ -15,7 +17,7 @@ namespace Supermarket
             //act
             myFood.SetName("Banana");
             //assert
-            Assert.Equals(myFood.GetName(), "Banana");
+            Assert.That(myFood.GetName(), Is.EqualTo("Banana"));
         }
 
         [Test]
@@ -26,7 +28,7 @@ namespace Supermarket
             //act
             myElectronic.SetProductPrice(85.00);
             //assert
-            Assert.Equals(myElectronic.GetProductPrice(), 85.00);
+            Assert.That(myElectronic.GetProductPrice(), Is.EqualTo(85.00d));
         }
 
         [Test]
@@ -37,7 +39,7 @@ namespace Supermarket
             //act
             myElectronic.SetManufacturer("Asus");
             //assert
-            Assert.Equals(myElectronic.GetManufacturer(), "Asus");
+            Assert.That(myElectronic.GetManufacturer(), Is.EqualTo("Asus"));
         }
 
         [Test]
@@ -48,7 +50,7 @@ namespace Supermarket
             //act
             myFood.SetExpiryDate("14.05.2023");
             //assert
-            Assert.Equals(myFood.GetExpiryDate(), "14.05.2023");
+            Assert.That(myFood.GetExpiryDate(), Is.EqualTo("14.05.2023"));
         }
 
         [Test]
@@ -59,19 +61,19 @@ namespace Supermarket
             //act
             myFood.SetFoodType("meat");
             //assert
-            Assert.Equals(myFood.GetFoodType(), "meat");
+            Assert.That(myFood.GetFoodType(), Is.EqualTo("meat"));
         }
 
-
         [Test]
-        public void TestServices()
+        public void TestArticleList()
         {
             //arrange
-            TechSupport myService = new TechSupport(0, 0);
+            Article testarticle = new Article("", 0);
             //act
-            myService.SetPrice(10);
+            testarticle.AddArticle(true, "TestArticleName", 0.00, "TestArticleManufacturer", "", "");
+            List<IArticle> testList = testarticle.GetArticleList();
             //assert
-            Assert.Equals(myService.GetPrice(), 10);
+            Assert.That(testList.Count, Is.EqualTo(1));
         }
     }
 }

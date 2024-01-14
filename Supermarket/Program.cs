@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Supermarket
 {
@@ -12,12 +15,8 @@ namespace Supermarket
         static void Main(string[] args)
         {
             bool ProgramLoop = true;
-            int choice;
-            int choiceList;
-            int choiceAddProduct;
-            Console.WriteLine("hello! ! ! ");
             TechSupport tech = new TechSupport(25.50, 1);
-            Article article = new Article("Testarticle", 0.00);
+            Article article = new Article("", 0.00);
             List<IArticle> myArticleArray = article.GetArticleList();
             tech.ITCheck("15.03");
 
@@ -30,87 +29,335 @@ namespace Supermarket
                     "\nReserve housework [4]" +
                     "\n\nEnd program [0]");
 
-                choice = Convert.ToInt16(Console.ReadLine());
-                Console.Clear();
-                if(choice == 0)
-                {
-                    Console.WriteLine("Ending program...");
-                    ProgramLoop = false;
-                    break;
-                }
-                else if(choice == 1)
-                {
-                    Console.WriteLine("What kind of list of products do you want?");
-                    Console.WriteLine("Electronics [1]" +
-                        "\nFood [2]" +
-                        "\nBoth [3]" +
-                        "\n\nGo back [0]");
-                    choiceList = Convert.ToInt16(Console.ReadLine());
-                    if (choiceList == 0)
+                if(int.TryParse(Console.ReadLine(), out int choice))
                     {
-                        Console.Clear();
+                    Console.Clear();
+                    if (choice == 0)
+                    {
+                        Console.WriteLine("Ending program...");
+                        break;
                     }
-                    else if (choiceList == 1)
+
+                    //List
+                    else if (choice == 1)
                     {
-                        //foreach...
-                    }
-                    else if (choiceList == 2)
-                    {
-                        //foreach...
-                    }
-                    else if (choiceList == 3)
-                    {
-                        foreach (IArticle myArtiecle in myArticleArray)
+                        Console.WriteLine("What kind of list of products do you want?");
+                        Console.WriteLine("Electronics [1]" +
+                            "\nFood [2]" +
+                            "\nBoth [3]" +
+                            "\n\nGo back [0]");
+                        if(int.TryParse(Console.ReadLine(), out int choiceList))
                         {
-                            string myArticleName = myArtiecle.GetName();
-                            Console.WriteLine(myArticleName);
+                            Console.Clear();
+                            if (choiceList == 0)
+                            {
+                                Console.Clear();
+                            }
+
+                            //Electronics
+                            else if (choiceList == 1)
+                            {
+                                Console.WriteLine("What do you want to see listed?");
+                                Console.WriteLine("Names [1]" +
+                                    "\nPrices [2]" +
+                                    "\nManufacturers [3]" +
+                                    "\nAll three [4]" +
+                                    "\n\nGo back [0]");
+                                if(int.TryParse(Console.ReadLine(), out int choiceListArticle))
+                                {
+                                    ListElectronics(choiceListArticle, myArticleArray);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Your input was not a number!");
+                                }
+                            }
+
+                            //Food
+                            else if (choiceList == 2)
+                            {
+                                Console.WriteLine("What do you want to see listed?");
+                                Console.WriteLine("Names [1]" +
+                                    "\nPrices [2]" +
+                                    "\nExpiry dates [3]" +
+                                    "\nFood types [4]" +
+                                    "\nAll four [5]" +
+                                    "\n\n Go back [0]");
+                                if(int.TryParse(Console.ReadLine(), out int choiceListArticle))
+                                {
+                                    ListFood(choiceListArticle, myArticleArray);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Your input was not a number!");
+                                }
+                            }
+
+                            //Both
+                            else if (choiceList == 3)
+                            {
+                                Console.WriteLine("What do you want to see listed?");
+                                Console.WriteLine("Names [1]" +
+                                    "\nPrices [2]" +
+                                    "\nBoth [3]" +
+                                    "\n\nGo back [0]");
+                                if (int.TryParse(Console.ReadLine(), out int choiceListArticle))
+                                {
+
+                                    if (choiceListArticle == 0)
+                                    {
+                                    }
+                                    else if (choiceListArticle == 1)
+                                    {
+                                        WriteAllArticleFieldsFromList(typeof(IArticle), myArticleArray, true, false, false, false, false);
+                                    }
+                                    else if (choiceListArticle == 2)
+                                    {
+                                        WriteAllArticleFieldsFromList(typeof(IArticle), myArticleArray, false, true, false, false, false);
+                                    }
+                                    else if (choiceListArticle == 3)
+                                    {
+                                        WriteAllArticleFieldsFromList(typeof(IArticle), myArticleArray, true, true, false, false, false);
+                                    }
+
+
+                                    else
+                                    {
+                                        Console.WriteLine("You have chosen a number that offers nothing.");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Your input was not a number!");
+                                }
+                                Console.Clear();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Your input was not a number!");
+                        }
+
+                    }
+                    else if (choice == 2)
+                    {
+                        Console.WriteLine("What kind of product do you want to add?");
+                        Console.WriteLine("Electronic [1]" +
+                            "\nFood [2]" +
+                            "\n\nGo back [0]");
+                        if(int.TryParse(Console.ReadLine(), out int choiceAddProduct))
+                        {
+                            AddArticle(choiceAddProduct, article);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Your input was not a number!");
                         }
                     }
-                }
-                else if (choice == 2)
-                {
-                    Console.WriteLine("What kind of product do you want to add?");
-                    Console.WriteLine("Electronic [1]" +
-                        "\nFood [2]" +
-                        "\n\nGo back [0]");
-                    choiceAddProduct = Convert.ToInt16(Console.ReadLine());
-                    if(choiceAddProduct == 0)
+                    else if (choice == 3)
                     {
-                        Console.Clear();
+
+
+
+
                     }
-                    else if (choiceAddProduct == 1)
+                    else if (choice == 4)
                     {
-                        Console.WriteLine("What is the products name?");
-                        
-                        Console.WriteLine("What is the products price?");
 
-                        Console.WriteLine("Who is the manufacturer of the product?");
-                    }
-                    else if(choiceAddProduct == 2)
-                    {
-                        Console.WriteLine("What is the products name?");
-
-                        Console.WriteLine("What is the products price?");
-
-                        Console.WriteLine("When does the product expire?");
-
-                        Console.WriteLine("What type of food is it? (vegetable, meat...)");
                     }
                 }
-                else if (choice == 3)
+                else
                 {
-
-
-
-
+                    Console.WriteLine("Your input was not a number!");
+                    Console.ReadKey();
                 }
-                else if (choice == 4)
-                {
+                Console.Clear();
 
-                }
+
             } while (ProgramLoop == true);
 
+            Console.WriteLine();
             Console.ReadKey();
+        }
+
+        private static void WriteAllArticleFieldsFromList(Type filterTyp,List<IArticle> myArticleArray, bool writeName, bool writePrice, bool writeManufacturer, bool writeExpiryDate, bool writeFoodType)
+        {
+            foreach (IArticle myArticle in myArticleArray)
+            {
+                Type articleType = myArticle.GetType();
+
+                if (filterTyp == typeof(IArticle) || articleType == filterTyp)
+                {
+                    if (writeName)
+                    {
+                        string myArticleName = myArticle.GetName();
+                        Console.WriteLine("Name: {0}", myArticleName);
+                    }
+                    if (writePrice)
+                    {
+                        string myArticlePrice = Convert.ToString(myArticle.GetProductPrice());
+                        Console.WriteLine("Price: {0}", myArticlePrice);
+                    }
+                    if (writeManufacturer)
+                    {
+                        string myArticleManufacturer = ((Electronics)myArticle).GetManufacturer();
+                        Console.WriteLine("Manufacturer: {0}", myArticleManufacturer);
+                    }
+                    if (writeExpiryDate)
+                    {
+                        string myArticleExpiryDate = ((Food)myArticle).GetExpiryDate();
+                        Console.WriteLine("Expiry date: {0}", myArticleExpiryDate);
+                    }
+                    if (writeFoodType)
+                    {
+                        string myArticleFoodType = ((Food)myArticle).GetFoodType();
+                        Console.WriteLine("Food type: {0}", myArticleFoodType);
+                    }
+                }
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Press any key to return");
+            Console.ReadKey();
+        }
+
+        private static void ListElectronics(int choiceListArticle, List<IArticle> myArticleArray)
+        {
+            if (choiceListArticle == 0)
+            {
+            }
+            else if (choiceListArticle == 1)
+            {
+                WriteAllArticleFieldsFromList(typeof(Electronics), myArticleArray, true, false, false, false, false);
+            }
+            else if (choiceListArticle == 2)
+            {
+                WriteAllArticleFieldsFromList(typeof(Electronics), myArticleArray, false, true, false, false, false);
+            }
+            else if (choiceListArticle == 3)
+            {
+                WriteAllArticleFieldsFromList(typeof(Electronics), myArticleArray, false, false, true, false, false);
+            }
+            else if(choiceListArticle == 4)
+            {
+                WriteAllArticleFieldsFromList(typeof(Electronics), myArticleArray, true, true, true, false, false);
+            }
+            else
+            {
+                Console.WriteLine("Error, You have chosen a number that is not available.");
+            }
+            Console.Clear();
+        }
+
+        private static void ListFood(int choiceListArticle, List<IArticle> myArticleArray)
+        {
+            if (choiceListArticle == 0)
+            {
+                Console.Clear();
+            }
+            else if (choiceListArticle == 1)
+            {
+                WriteAllArticleFieldsFromList(typeof(Food), myArticleArray, true, false, false, false, false);
+            }
+            else if (choiceListArticle == 2)
+            {
+                WriteAllArticleFieldsFromList(typeof(Food), myArticleArray, false, true, false, false, false);
+            }
+            else if (choiceListArticle == 3)
+            {
+                WriteAllArticleFieldsFromList(typeof(Food), myArticleArray, false, false, false, true, false);
+            }
+            else if (choiceListArticle == 4)
+            {
+                WriteAllArticleFieldsFromList(typeof(Food), myArticleArray, false, false, false, false, true);
+            }
+            else if (choiceListArticle == 5)
+            {
+                WriteAllArticleFieldsFromList(typeof(Food), myArticleArray, true, true, false, true, true);
+            }
+            else
+            {
+                Console.WriteLine("Error, You have chosen a number that is not available.");
+            }
+            Console.Clear();
+        }
+
+        private static void AddArticle(int choiceAddProduct, Article article)
+        {
+            if (choiceAddProduct == 0)
+            {
+                Console.Clear();
+            }
+            else if (choiceAddProduct == 1)
+            {
+                AddProduct(article, true);
+            }
+            else if (choiceAddProduct == 2)
+            {
+                AddProduct(article, false);
+            }
+        }
+        private static void AddProduct(Article article, bool IsElectronic)
+        {
+            string Productname;
+            string Productmanufacturer;
+            string ProductExpirydate;
+            string ProductFoodType;
+            if (IsElectronic)
+            {
+                Console.WriteLine("What is the products name?");
+                Productname = Console.ReadLine();
+                Console.WriteLine("What is the products price?");
+                if(int.TryParse(Console.ReadLine(), out int Productprice))
+                {
+                    Console.WriteLine("Who is the manufacturer of the product?");
+                    Productmanufacturer = Console.ReadLine();
+
+                    if (Productname == null || Productprice == 0.00 || Productmanufacturer == null)
+                    {
+                        Console.WriteLine("Error, at least one field was left empty.");
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        article.AddArticle(true, Productname, Productprice, Productmanufacturer, "", "");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Your input was not a number!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("What is the products name?");
+                Productname = Console.ReadLine();
+                Console.WriteLine("What is the products price?");
+                if (int.TryParse(Console.ReadLine(), out int Productprice))
+                {
+                    Console.WriteLine("When does the product expire?");
+                    ProductExpirydate = Console.ReadLine();
+                    Console.WriteLine("What type of food is it? (vegetable, meat...)");
+                    ProductFoodType = Console.ReadLine();
+
+                    if (Productname == null || Productprice == 0.00 || ProductExpirydate == null || ProductFoodType == null)
+                    {
+                        Console.WriteLine("Error, at least one field was left empty.");
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        article.AddArticle(false, Productname, Productprice, "", ProductExpirydate, ProductFoodType);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Your input was not a number!");
+                }
+
+            }
+            Console.Clear();
+
         }
     }
 }
