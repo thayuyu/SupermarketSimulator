@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Supermarket
 {
-    internal class Services
+    internal class Services : IService
     {
         // Memebervariables
         private double price;
         private int amountOfPersonal;
-        
+
+        List<IService> myServicesList = new List<IService>();
+
         // Constructor
-        public Services(double Price, int Amount) 
+        public Services(double Price, int Amount)
         {
             SetPrice(Price);
             SetAmountPersonal(Amount);
@@ -28,7 +30,7 @@ namespace Supermarket
         {
             return price;
         }
-        public void SetAmountPersonal(int amount) 
+        public void SetAmountPersonal(int amount)
         {
             amountOfPersonal = amount;
         }
@@ -41,6 +43,28 @@ namespace Supermarket
         public void AddPersonal(int value)
         {
             amountOfPersonal += value;
+        }
+        public List<IService> GetServiceList()
+        {
+            return myServicesList;
+        }
+
+        public void AddService(bool IsHousework, double Price, int Amount, string Address, string Date, Electronics Item)
+        {
+            if (IsHousework)
+            {
+                Housework NewHouseWork = new Housework(Price, Amount, Address, Date);
+                myServicesList.Add(NewHouseWork);
+            }
+            else
+            {
+                TechSupport NewTechSupport = new TechSupport(Price, Amount, Date, Item);
+                myServicesList.Add(NewTechSupport);
+            }
+        }
+        public virtual string Output()
+        {
+            return "error";
         }
     }
 }

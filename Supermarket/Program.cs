@@ -15,21 +15,24 @@ namespace Supermarket
         static void Main(string[] args)
         {
             bool ProgramLoop = true;
-            TechSupport tech = new TechSupport(25.50, 1);
+            Services service = new Services(0.0, 1);
             Article article = new Article("", 0.00);
             List<IArticle> myArticleArray = article.GetArticleList();
-            tech.ITCheck("15.03");
+            List<IService> myList = service.GetServiceList();
+
 
             do
             {
                 Console.WriteLine("What do you want to do?");
                 Console.WriteLine("List of products [1]" +
                     "\nAdd a product [2]" +
-                    "\nCheck in Service [3]" +
-                    "\nReserve housework [4]" +
+                    "\nHousework [3]" +
+                    "\nTech Support [4]" +
+                    "\nShow services [5]" +
+                    "\nGet Receipt [6]" +
                     "\n\nEnd program [0]");
 
-                if(int.TryParse(Console.ReadLine(), out int choice))
+                if (int.TryParse(Console.ReadLine(), out int choice))
                     {
                     Console.Clear();
                     if (choice == 0)
@@ -156,14 +159,104 @@ namespace Supermarket
                     }
                     else if (choice == 3)
                     {
+                        Console.WriteLine("How much does it cost?");
+                        double price = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine("How many people are needed?");
+                        int amountOfPers = Convert.ToInt16(Console.ReadLine());
+                        Console.WriteLine("Where will it be done?");
+                        string address = Console.ReadLine();
+                        Console.WriteLine("When should the Housework be done?");
+                        string date = Console.ReadLine();
 
-
-
-
+                        service.AddService(true, price, amountOfPers, address, date, null);
+                        Console.Clear();
                     }
                     else if (choice == 4)
                     {
+                        Console.WriteLine("How much does it cost?");
+                        double price = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine("How many people are needed?");
+                        int amountOfPers = Convert.ToInt16(Console.ReadLine());
+                        Console.WriteLine("When will the TechSupport be done?");
+                        string date = Console.ReadLine();
+                        Console.WriteLine("What's the name of the product you'd like to fix?");
+                        Electronics item = FindElectronic(Console.ReadLine(), myArticleArray);
 
+
+                        service.AddService(false, price, amountOfPers, null, date, item);
+                        Console.Clear();
+                    }
+                    else if (choice == 5)
+                    {
+                        Console.WriteLine("What do you want to show?" +
+                            "\nHousework [1]" +
+                            "\nTechSupport [2]" +
+                            "\nBoth [3]" +
+                            "\n\nGo Back [0]");
+                        int choiceChooseServiceList = Convert.ToInt16(Console.ReadLine());
+                        Console.Clear();
+                        if (choiceChooseServiceList == 0)
+                        {
+
+                        }
+                        else if (choiceChooseServiceList == 1)
+                        {
+                            Console.WriteLine("All Housework saved:\n");
+                            foreach (Housework s in myList)
+                            {
+                                Console.WriteLine(s.Output());
+                                Console.Write("\n");
+
+                            }
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                        else if (choiceChooseServiceList == 2)
+                        {
+                            Console.WriteLine("All Tech Support saved:\n");
+                            foreach (TechSupport s in myList)
+                            {
+                                Console.WriteLine(s.Output());
+                                Console.Write("\n");
+                            }
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                        else if (choiceChooseServiceList == 3)
+                        {
+                            Console.WriteLine("All Services saved:\n");
+                            foreach (IService s in myList)
+                            {
+                                Console.WriteLine(s.Output());
+                                Console.Write("\n");
+                            }
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                    }
+                    else if (choice == 6)
+                    {
+                        double subTotalArti = 0.0;
+                        double subTotalServ = 0.0;
+                        Console.Clear();
+                        Console.WriteLine("Here is your receipt:\n\nArticles:\n");
+                        foreach (Article a in myArticleArray)
+                        {
+                            Console.WriteLine($"{a.GetName()}\t\t\t{a.GetProductPrice()}\n");
+                            subTotalArti += a.GetProductPrice();
+                        }
+                        Console.WriteLine($"\n\tSubtotal Articles:\t\t{subTotalArti}");
+                        Console.WriteLine("\n\nServices:\n");
+                        foreach (Services s in myList)
+                        {
+                            Console.WriteLine($"{s.Output()}\n");
+                            subTotalServ += s.GetPrice();
+                        }
+                        Console.WriteLine($"\n\tSubtotal Services:\t\t{subTotalServ}");
+
+                        Console.WriteLine($"\n\n\nTotal:\t\t\t{subTotalArti + subTotalServ}");
+                        Console.ReadKey();
+                        Console.Clear();
                     }
                 }
                 else
@@ -358,6 +451,17 @@ namespace Supermarket
             }
             Console.Clear();
 
+        }
+        static public Electronics FindElectronic(string name, List<IArticle> List)
+        {
+            foreach (Electronics E in List)
+            {
+                if (E.GetName() == name)
+                {
+                    return E;
+                }
+            }
+            return null;
         }
     }
 }

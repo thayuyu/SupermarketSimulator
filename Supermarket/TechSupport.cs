@@ -6,46 +6,30 @@ using System.Threading.Tasks;
 
 namespace Supermarket
 {
-    internal class TechSupport : Services
+    internal class TechSupport : Services, IService
     {
-        List<IArticle> mArticleList = new List<IArticle>();
 
+        private string date { get; set; }
+        private Electronics item { get; set; }
 
-        // private List<Electronics> Items = new List<Electronics> ();
         // Constructor 
-        public TechSupport(double Price, int Amount) : base(Price, Amount)
+        public TechSupport(double Price, int Amount, string Date, Electronics Item) : base(Price, Amount)
         {
             SetPrice(Price);
             SetAmountPersonal(Amount);
+            date = Date;
+            item = Item;
         }
-
-        //public List<IArticle> GetArticleList()
-        //{
-        //    return mArticleList;
-        //}
-
-        //public void AddArticle(bool IsElectronic, string name, double price, string manufacturer, string expiryDate, string foodType)
-        //{
-        //    if(IsElectronic)
-        //    {
-        //        Electronics NewElectronic = new Electronics(name, price, manufacturer);
-        //        mArticleList.Add(NewElectronic);
-        //    }
-        //    else if (!IsElectronic)
-        //    {
-        //        Food NewFood = new Food(name, price, expiryDate, foodType);
-        //        mArticleList.Add(NewFood);
-        //    }
-        //}
-
-        // general It check
-        public void ITCheck(string date)
+        public override string Output()
         {
-            Console.WriteLine("A general check will be done the {0}", date);
+            if (item == null)
+            {
+                return $"The {date}, Tech Support will be done.\nPrice: {GetPrice()} CHF\nPersonal needed: {GetAmountOfPersonal()}";
+            }
+            else
+            {
+                return $"The {date}, Tech Support for the article {item.GetName()} from Maufacturer {item.GetManufacturer()} will be done.\nPrice: {GetPrice()} CHF\nPersonal needed: {GetAmountOfPersonal()}";
+            }
         }
-        //public void Maintenance(Electronics Item, int hours)
-        //{
-        //    Console.WriteLine("The Article {0} will undergo Maintenance for {1} hours and {2} will be needed for it.\nPrice:{3}", Item.name, hours, GetAmountOfPersonal(), GetPrice());
-        //}
     }
 }

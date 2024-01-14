@@ -6,29 +6,23 @@ using System.Threading.Tasks;
 
 namespace Supermarket
 {
-    internal class Housework : Services
+    internal class Housework : Services, IService
     {
 
-
+        private string address { get; set; }
+        private string date { get; set; }
         // Constructor 
-        public Housework(double Price, int Amount) : base(Price, Amount) 
+        public Housework(double Price, int Amount, string Address, string Date) : base(Price, Amount)
         {
             SetPrice(Price);
             SetAmountPersonal(Amount);
-
+            address = Address;
+            date = Date;
         }
 
-        // Cleaning a client's house
-        public void CleanHouse(string address, string date, double Price)
+        public override string Output()
         {
-            SetPrice(Price);
-            Console.WriteLine("The {0}, the House at {1} will be cleaned for {2:0.00} CHF", date, address, GetPrice());
-        }
-
-        // Changing a light bulb !!just for testing!!
-        public void ChangeBulb()
-        {
-            Console.WriteLine("You really need help with that?");
+            return $"Housework will be done {date} at address {address}. \nPrice: {GetPrice()} CHF\nPersonal needed: {GetAmountOfPersonal()}";
         }
     }
 }
