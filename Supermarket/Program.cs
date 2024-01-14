@@ -241,10 +241,13 @@ namespace Supermarket
                             else if (choiceChooseServiceList == 1)
                             {
                                 Console.WriteLine("All Housework saved:\n");
-                                foreach (Housework s in myList)
+                                foreach (IService s in myList)
                                 {
-                                    Console.WriteLine(s.Output());
-                                    Console.Write("\n");
+                                    if (s.GetType() == typeof(Housework))
+                                    {
+                                        Console.WriteLine(s.Output());
+                                        Console.Write("\n");
+                                    }
 
                                 }
                                 Console.ReadKey();
@@ -253,10 +256,13 @@ namespace Supermarket
                             else if (choiceChooseServiceList == 2)
                             {
                                 Console.WriteLine("All Tech Support saved:\n");
-                                foreach (TechSupport s in myList)
+                                foreach (IService s in myList)
                                 {
-                                    Console.WriteLine(s.Output());
-                                    Console.Write("\n");
+                                    if (s.GetType() == typeof(TechSupport))
+                                    {
+                                        Console.WriteLine(s.Output());
+                                        Console.Write("\n");
+                                    }
                                 }
                                 Console.ReadKey();
                                 Console.Clear();
