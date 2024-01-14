@@ -169,7 +169,7 @@ namespace Supermarket
                     else if (choice == 3)
                     {
                         Console.WriteLine("How much does it cost?");
-                        if (int.TryParse(Console.ReadLine(), out int price))
+                        if (double.TryParse(Console.ReadLine(), out double price))
                         {
                             Console.WriteLine("How many people are needed?");
                             if (int.TryParse(Console.ReadLine(), out int amountOfPers))
@@ -197,7 +197,7 @@ namespace Supermarket
                     else if (choice == 4)
                     {
                         Console.WriteLine("How much does it cost?");
-                        if (int.TryParse(Console.ReadLine(), out int price))
+                        if (double.TryParse(Console.ReadLine(), out double price))
                         {
                             Console.WriteLine("How many people are needed?");
                             if(int.TryParse(Console.ReadLine(), out int amountOfPers))
@@ -463,7 +463,7 @@ namespace Supermarket
                 Console.WriteLine("What is the products name?");
                 Productname = Console.ReadLine();
                 Console.WriteLine("What is the products price?");
-                if(int.TryParse(Console.ReadLine(), out int Productprice))
+                if(double.TryParse(Console.ReadLine(), out double Productprice))
                 {
                     Console.WriteLine("Who is the manufacturer of the product?");
                     Productmanufacturer = Console.ReadLine();
@@ -489,7 +489,7 @@ namespace Supermarket
                 Console.WriteLine("What is the products name?");
                 Productname = Console.ReadLine();
                 Console.WriteLine("What is the products price?");
-                if (int.TryParse(Console.ReadLine(), out int Productprice))
+                if (double.TryParse(Console.ReadLine(), out double Productprice))
                 {
                     Console.WriteLine("When does the product expire?");
                     ProductExpirydate = Console.ReadLine();
